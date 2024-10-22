@@ -1,0 +1,42 @@
+[
+    {
+      "id": 1,
+      "title": "Read the 1st pdf",
+      "description": "I should read the instructions.",
+      "color": "green",
+      "status": "done",
+      "tasks": []
+    },
+    {
+      "id": 2,
+      "title": "Write some code",
+      "description": "Try out the examples from the pdfs.",
+      "color": "blue",
+      "status": "todo",
+      "tasks": [
+        {
+          "id": 1,
+          "name": "Hello World",
+          "done": true
+        },
+        {
+          "id": 2,
+          "name": "GroceryList",
+          "done": true
+        },
+        {
+          "id": 3,
+          "name": "Kanban",
+          "done": false
+        }
+      ]
+    },
+    {
+        "id": 3,
+        "title": "Read the 2nd pdf",
+        "description": "I should read the instructions.",
+        "color": "red",
+        "status": "in-progress",
+        "tasks": []
+    }
+  ]
