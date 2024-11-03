@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom/client';
-import KanbanContainer from './kanbanContainer';
-import './style.css';
+import About from './about';
+import Contact from './contact';
+import Home from './home';
+import ErrorPage from './error';
+import './routing_style.css';
+import {createBrowserRouter, RouterProvider, Link, Outlet} from "react-router-dom";
 
 class App extends Component {
     constructor() {
@@ -27,15 +31,34 @@ class App extends Component {
                 <header>App</header>
                 <menu>
                     <ul>
-                        <li><a href="#/about">About</a></li>
-                        <li><a href="#/contact">Contact</a></li>
+                        <li><Link to={"/"}>Home</Link></li>
+                        <li><Link to={"/about"}>About</Link></li>
+                        <li><Link to={"/contact"}>Contact</Link></li>
                     </ul>
                 </menu>
-                <Child/>
+                <Outlet/>
             </div>
         );
     }
 }
+
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <App/>,
+        errorElement: <ErrorPage/>,
+        children: [
+            {index: true, element: <Home/>},
+            {path: "about", element: <About/>},
+            {path: "contact", element: <Contact/>}
+            ],
+    }
+]);
+ReactDOM.createRoot(document.getElementById('root')).render(
+    <React.StrictMode>
+        <RouterProvider router={router}/>
+    </React.StrictMode>
+);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App/>);
 
